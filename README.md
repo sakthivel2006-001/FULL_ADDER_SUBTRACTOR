@@ -36,6 +36,50 @@ Diff = A ⊕ B ⊕ Bin
 
 Borrow out = A'Bin + A'B + BBin
 
+ **Program**
+
+FULL ADD:
+
+module fulladd_top(a,b,cin,sum,carry);
+
+input a,b,cin;
+
+output sum,carry;
+
+wire w1,w2,w3,w4;       
+
+xor(w1,a,b);
+
+xor(sum,w1,cin);        
+
+
+and(w2,a,b);
+
+and(w3,b,cin);
+
+and(w4,cin,a);
+
+
+or(carry,w2,w3,w4);
+
+endmodule
+
+
+
+FULL SUB:
+
+module fullsub_top(a,b,Bin,BO,DIFF);
+
+input a,b,Bin;
+
+output BO,DIFF;
+
+assign DIFF = a ^ b ^ Bin;
+
+assign BO = (a & b) | ((a ^ b) & Bin);
+
+endmodule
+
 **Truthtable**
 
 **Procedure**
@@ -50,6 +94,14 @@ Write the detailed procedure here
 **RTL Schematic**
 
 **Output Timing Waveform**
+## FULL ADDER:
+
+![Screenshot 2024-03-22 142830](https://github.com/sakthivel2006-001/FULL_ADDER_SUBTRACTOR/assets/151398732/f9bded0e-82c9-4354-ac9b-a6bf7eaa6121)
+
+## FULL SUB:
+
+![Screenshot 2024-03-22 142839](https://github.com/sakthivel2006-001/FULL_ADDER_SUBTRACTOR/assets/151398732/d125dc9d-295b-4c12-9816-e641f32143b9)
+
 
 **Result:**
 
